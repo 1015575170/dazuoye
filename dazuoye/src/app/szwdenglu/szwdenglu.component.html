@@ -1,3 +1,5 @@
+
+<p>用户名：admin;密码：123456</p>
 <div class="d-flex justify-content-center  login-content">
   <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
       <h3 class="d-flex justify-content-center">用户登录</h3>
@@ -25,6 +27,6 @@
         密码必须大于5位
       </div>
     </div>
-      <button type="submit" class="btn btn-primary btn-block" [disabled]="myForm.invalid" [routerLink]="['/guanli']" (click)='login()'>提交</button>
+      <button type="submit" class="btn btn-primary btn-block"  [routerLink]="['/guanli']" (click)='login()'>提交</button>
   </form>
   </div>

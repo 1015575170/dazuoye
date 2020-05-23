@@ -11,8 +11,14 @@ import { SzwshouyeComponent } from './szwshouye/szwshouye.component';
 import { SzwguanliComponent } from './szwguanli/szwguanli.component';
 import { LoginGuard } from './login.guard';
 import { AuthService } from './auth.service';
+import { SzwmanagementComponent } from './szwmanagement/szwmanagement.component';
+import { SzwyonghuComponent } from './szwyonghu/szwyonghu.component';
 
-
+const mgtChildrenRoutes: Routes = [
+  { path: 'management', component: SzwmanagementComponent },
+  { path: 'yonghu', component: SzwyonghuComponent },
+  { path: '', redirectTo: 'user', pathMatch: 'full' }
+];
 
 const routes: Routes = [
   { path: 'shouye', component: SzwshouyeComponent },
@@ -21,6 +27,7 @@ const routes: Routes = [
   {
     path: 'guanli',
     component: SzwguanliComponent,
+    children: mgtChildrenRoutes,
     canActivate: [LoginGuard],
     }
   ];
@@ -32,7 +39,9 @@ const routes: Routes = [
     AppComponent,
     SzwdengluComponent,
     SzwshouyeComponent,
-    SzwguanliComponent
+    SzwguanliComponent,
+    SzwmanagementComponent,
+    SzwyonghuComponent
   ],
   imports: [
     BrowserModule,

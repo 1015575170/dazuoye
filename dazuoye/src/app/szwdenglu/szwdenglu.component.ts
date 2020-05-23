@@ -44,6 +44,11 @@ export class SzwdengluComponent {
     console.log(value);
   }
   login() {
-    this.authService.login();
+    if(this.userName.value === 'admin'&& this.password.value === '123456'){
+      this.authService.login();
+    }else{
+      this.authService.logout();
+    }
+    
     }
 }
