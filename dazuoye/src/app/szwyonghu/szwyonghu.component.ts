@@ -30,20 +30,20 @@ export class SzwyonghuComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.users$ = <Observable<User>>this.httpClient.get(this.baseUrl+'xss');
+    this.users$ = <Observable<User>>this.httpClient.get(this.baseUrl+'abs');
   }
   search(){
     if(this.id.value){
-      this.users$ = <Observable<User>>this.httpClient.get(this.baseUrl+'xss/'+this.id.value);
+      this.users$ = <Observable<User>>this.httpClient.get(this.baseUrl+'abs/'+this.id.value);
     }else{
-      this.users$ = <Observable<User>>this.httpClient.get(this.baseUrl+'xss');
+      this.users$ = <Observable<User>>this.httpClient.get(this.baseUrl+'abs');
     }
   }
 
 
   add(){
     console.log(this.myForm.value);
-    this.httpClient.post(this.baseUrl + 'xs',this.myForm.value).subscribe(
+    this.httpClient.post(this.baseUrl + 'ab',this.myForm.value).subscribe(
       (val:any) =>{
         if(val.succ){
           alert('添加成功');
@@ -63,7 +63,7 @@ export class SzwyonghuComponent implements OnInit {
       alert('必须先选择用户!');
     }
     else {
-      this.httpClient.delete(this.baseUrl + 'xs/' + this.currentUser.id).subscribe(
+      this.httpClient.delete(this.baseUrl + 'ab/' + this.currentUser.id).subscribe(
         (val: any) => {
           if (val.succ) {
             alert('删除成功!');
@@ -77,7 +77,7 @@ export class SzwyonghuComponent implements OnInit {
       alert('必须先选择用户!');
     }
     else {
-      this.httpClient.put(this.baseUrl + 'xs', this.myForm.value).subscribe(
+      this.httpClient.put(this.baseUrl + 'ab', this.myForm.value).subscribe(
         (val: any) => {
           if (val.succ) {
             alert('修改成功!');
